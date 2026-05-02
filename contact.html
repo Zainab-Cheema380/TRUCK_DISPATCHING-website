@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Contact Truck Dispatch Pro - Get a free quote for dispatching services. Call, email, or fill out our contact form. 24/7 support available.">
+    <meta name="keywords" content="contact truck dispatching, get quote, truck dispatch support">
+    <title>Contact Us | Truck Dispatch Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE - same color scheme as services.html ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* ========== ANIMATIONS (same as services.html) ========== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(233,69,96,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(233,69,96,0); }
+        }
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========== NAVBAR (exactly like services.html) ========== */
+        .navbar {
+            background: #0f172a;
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: fadeInDown 0.6s ease;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+        }
+        .logo i {
+            color: #e94560;
+            font-size: 1.7rem;
+            transition: transform 0.3s;
+        }
+        .logo:hover i {
+            transform: rotate(-5deg) scale(1.1);
+        }
+        .logo span {
+            color: white;
+        }
+        .logo .highlight {
+            color: #e94560;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            align-items: center;
+        }
+        .nav-link {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #e94560;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #e94560;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, #e94560, #b91c3c);
+            padding: 8px 22px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233,69,96,0.4);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .hamburger:hover {
+            color: #e94560;
+        }
+
+        /* ========== PAGE HEADER (services header style) ========== */
+        .page-header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(233,69,96,0.12) 0%, transparent 70%);
+            animation: slowRotate 25s linear infinite;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .page-header p {
+            font-size: clamp(0.95rem, 4vw, 1.2rem);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            position: relative;
+            z-index: 1;
+        }
+        .page-header .highlight {
+            color: #e94560;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== CONTACT INFO CARDS (service card style) ========== */
+        .contact-info-section {
+            padding: 70px 0;
+        }
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+        }
+        .contact-info-card {
+            background: white;
+            border-radius: 28px;
+            padding: 35px 28px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid #eef2f6;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .contact-info-card.visible {
+            animation: scaleIn 0.7s forwards;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-12px);
+            border-color: #e94560;
+            box-shadow: 0 25px 45px rgba(233,69,96,0.12);
+        }
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            transition: all 0.3s;
+            animation: floatAnimation 3s infinite ease-in-out;
+        }
+        .contact-info-card:hover .contact-icon {
+            transform: scale(1.05) rotate(5deg);
+        }
+        .contact-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        .contact-info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .contact-detail {
+            font-weight: 500;
+            margin: 0.3rem 0;
+            color: #334155;
+        }
+        .contact-note {
+            font-size: 0.8rem;
+            color: #e94560;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ========== CONTACT FORM + SIDEBAR SECTION ========== */
+        .contact-form-section {
+            padding: 2rem 0 4rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 3rem;
+        }
+        /* Form Wrapper - card style */
+        .contact-form-wrapper {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f6;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        .contact-form-wrapper.visible {
+            animation: slideInLeft 0.7s forwards;
+        }
+        .form-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .form-header .highlight {
+            color: #e94560;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+            font-size: 0.85rem;
+        }
+        .form-group label i {
+            color: #e94560;
+            margin-right: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            font-family: inherit;
+            transition: 0.2s;
+            background: #ffffff;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #e94560;
+            box-shadow: 0 0 0 3px rgba(233,69,96,0.2);
+        }
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 1.5rem 0;
+        }
+        .form-checkbox label {
+            font-size: 0.85rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #e94560, #b91c3c);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233,69,96,0.4);
+        }
+        .form-note {
+            text-align: center;
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            color: #64748b;
+        }
+        .form-success {
+            text-align: center;
+            padding: 2rem;
+        }
+        .form-success i {
+            font-size: 3rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar Cards (same as services sidebar style) */
+        .contact-sidebar > div {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #eef2f6;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        .contact-sidebar > div.visible {
+            animation: slideInRight 0.7s forwards;
+        }
+        .contact-sidebar > div:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+            box-shadow: 0 15px 30px rgba(233,69,96,0.08);
+        }
+        .business-hours h3, .quick-response h3, .emergency-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .business-hours h3 i, .quick-response h3 i, .emergency-contact h3 i {
+            color: #e94560;
+        }
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .response-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+        .response-item i {
+            width: 35px;
+            height: 35px;
+            background: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e94560;
+        }
+        .emergency-contact {
+            background: linear-gradient(145deg, #fff7ed, #fffbeb);
+            border-left: 5px solid #e94560;
+        }
+        .emergency-number {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #e94560;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+        .emergency-note {
+            font-size: 0.75rem;
+            color: #64748b;
+            display: block;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 2rem 0 4rem;
+        }
+        .map-wrapper {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f6;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.5s;
+        }
+        .map-wrapper.visible {
+            animation: fadeInUp 0.7s forwards;
+        }
+        .map-wrapper h3 {
+            padding: 1rem 1.5rem 0;
+            color: #0f172a;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            display: block;
+        }
+        .map-address {
+            padding: 1rem 1.5rem 1.5rem;
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        /* FAQ Section */
+        .contact-faq {
+            padding: 2rem 0 4rem;
+        }
+        .contact-faq-item {
+            display: flex;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 24px;
+            margin-bottom: 1rem;
+            border: 1px solid #eef2ff;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .contact-faq-item.visible {
+            animation: fadeInUp 0.6s forwards;
+        }
+        .contact-faq-item:hover {
+            border-color: #e94560;
+            transform: translateX(5px);
+        }
+        .contact-faq-item i {
+            font-size: 1.8rem;
+            color: #e94560;
+        }
+        .contact-faq-item strong {
+            font-size: 1rem;
+        }
+
+        /* CTA Section (same as services.html) */
+        .cta-small {
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            padding: 60px 24px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-small::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 140%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            animation: slowRotate 20s linear infinite;
+        }
+        .cta-wrapper {
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .cta-wrapper.visible {
+            animation: fadeInUp 0.7s forwards;
+        }
+        .cta-wrapper h3 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 15px;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: #e94560;
+            transform: translateY(-3px);
+        }
+
+        /* Footer (same as services.html) */
+        .footer {
+            background: #0b1120;
+            color: #cbd5e1;
+            padding: 55px 24px 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .footer-logo i {
+            color: #e94560;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e94560;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            background: #e94560;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+        }
+        .footer-links li, .footer-contact li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: #e94560;
+            padding-left: 4px;
+        }
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+        }
+        .footer-contact i {
+            width: 20px;
+            color: #e94560;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 35px;
+            margin-top: 40px;
+            border-top: 1px solid #1e293b;
+            font-size: 0.7rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: #0f172a;
+                padding: 25px 20px;
+                border-radius: 24px;
+                margin-top: 15px;
+                gap: 1.2rem;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .page-header {
+                padding: 80px 20px 45px;
+            }
+            .contact-info-section {
+                padding: 45px 0;
+            }
+            .contact-info-card {
+                padding: 28px 22px;
+            }
+            .contact-icon {
+                width: 70px;
+                height: 70px;
+            }
+            .contact-icon i {
+                font-size: 1.7rem;
+            }
+            .contact-form-wrapper {
+                padding: 1.5rem;
+            }
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+            .footer-grid {
+                text-align: center;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .footer-contact li {
+                justify-content: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .service-features li {
+                font-size: 0.75rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-outline, .btn-primary {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-truck-fast"></i>
+                <span>Truck<span class="highlight">Dispatch</span>Pro</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="register.html" class="nav-btn">Driver Register</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get In <span class="highlight">Touch</span></h1>
+            <p>We're here 24/7 to answer your questions and provide free quotes</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-cards-grid">
+                <div class="contact-info-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><h3>Call Us 24/7</h3><p class="contact-detail">+1 (555) 123-4567</p><p class="contact-detail">+1 (800) 123-4567</p><p class="contact-note">Toll Free</p></div>
+                <div class="contact-info-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><h3>Email Us</h3><p class="contact-detail">support@truckdispatchpro.com</p><p class="contact-detail">sales@truckdispatchpro.com</p><p class="contact-note">Response within 30 minutes</p></div>
+                <div class="contact-info-card"><div class="contact-icon"><i class="fas fa-clock"></i></div><h3>24/7 Support</h3><p class="contact-detail">Monday - Sunday</p><p class="contact-detail">24 Hours / 7 Days</p><p class="contact-note">Always available</p></div>
+                <div class="contact-info-card"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Office Address</h3><p class="contact-detail">123 Trucking Avenue</p><p class="contact-detail">Dallas, TX 75201</p><p class="contact-note">Virtual meetings available</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Sidebar -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <div class="form-header"><h2>Get a <span class="highlight">Free Quote</span></h2><p>Fill out the form below and we'll get back to you within 30 minutes</p></div>
+                    <form id="contactForm">
+                        <div class="form-row"><div class="form-group"><label><i class="fas fa-user"></i> Full Name *</label><input type="text" id="name" placeholder="Enter your full name" required></div>
+                        <div class="form-group"><label><i class="fas fa-phone"></i> Phone Number *</label><input type="tel" id="phone" placeholder="Enter your phone number" required></div></div>
+                        <div class="form-row"><div class="form-group"><label><i class="fas fa-envelope"></i> Email Address *</label><input type="email" id="email" placeholder="Enter your email address" required></div>
+                        <div class="form-group"><label><i class="fas fa-truck"></i> Number of Trucks</label><select id="trucks"><option>1 truck (Owner Operator)</option><option>2-3 trucks</option><option>4-5 trucks</option><option>6-10 trucks</option><option>10+ trucks</option></select></div></div>
+                        <div class="form-row"><div class="form-group"><label><i class="fas fa-route"></i> Truck Type</label><select id="truckType"><option>Dry Van</option><option>Reefer</option><option>Flatbed</option><option>Hot Shot</option></select></div>
+                        <div class="form-group"><label><i class="fas fa-map"></i> Operating Area</label><select id="operatingArea"><option>Local (within 100 miles)</option><option>Regional (100-500 miles)</option><option>OTR (500+ miles)</option></select></div></div>
+                        <div class="form-group"><label><i class="fas fa-comment"></i> Message *</label><textarea id="message" rows="4" placeholder="Tell us about your trucking needs..." required></textarea></div>
+                        <div class="form-checkbox"><input type="checkbox" id="contactTerms" required><label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label></div>
+                        <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <p class="form-note"><i class="fas fa-lock"></i> Your information is secure and will not be shared</p>
+                    </form>
+                    <div id="formSuccess" class="form-success" style="display: none;"><i class="fas fa-check-circle"></i><h3>Thank You!</h3><p>Your message has been sent successfully. We'll contact you within 30 minutes.</p><button class="btn-primary" onclick="location.reload()">Send Another</button></div>
+                </div>
+                <div class="contact-sidebar">
+                    <div class="business-hours"><h3><i class="fas fa-clock"></i> Business Hours</h3><div class="hours-list"><div class="hour-item"><span>Monday - Sunday</span><strong>24/7</strong></div></div><p><i class="fas fa-headset"></i> Emergency support anytime</p></div>
+                    <div class="quick-response"><h3><i class="fas fa-bolt"></i> Quick Response</h3><div class="response-times"><div class="response-item"><i class="fas fa-phone"></i><div><strong>Phone Response</strong><span>Within 5 minutes</span></div></div><div class="response-item"><i class="fas fa-envelope"></i><div><strong>Email Response</strong><span>Within 30 minutes</span></div></div></div></div>
+                    <div class="emergency-contact" style="animation: pulseGlow 1.8s infinite;"><i class="fas fa-exclamation-triangle"></i><h3>Emergency?</h3><p>For urgent dispatch issues, call our emergency line:</p><a href="tel:+15551234567" class="emergency-number">+1 (555) 123-4567</a><span class="emergency-note">Available 24/7 for active drivers</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section"><div class="container"><div class="map-wrapper"><h3><i class="fas fa-map-marker-alt"></i> Our Location</h3><div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.6017051612!2d-96.87114589999999!3d32.8203525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974d%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="map-address"><i class="fas fa-location-dot"></i><div><strong>Truck Dispatch Pro</strong><br>123 Trucking Avenue, Suite 100, Dallas, TX 75201</div></div></div></div></section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq"><div class="container"><h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h3><div class="contact-faq-item"><i class="fas fa-question-circle"></i><div><strong>How fast do you respond?</strong><p>We respond to all inquiries within 30 minutes during business hours.</p></div></div><div class="contact-faq-item"><i class="fas fa-question-circle"></i><div><strong>Do you offer free consultations?</strong><p>Yes! We offer free 15-minute consultations to discuss your needs.</p></div></div><div class="contact-faq-item"><i class="fas fa-question-circle"></i><div><strong>Can I call after hours?</strong><p>Absolutely! Our dispatch team works 24/7. Call anytime.</p></div></div></div></section>
+
+    <!-- CTA Section -->
+    <section class="cta-small"><div class="container"><div class="cta-wrapper"><h3>Ready to Start Earning More?</h3><p>Join 500+ drivers who have increased their revenue by 30-50%</p><div class="cta-buttons"><button class="btn-primary" onclick="location.href='register.html'">Register Your Truck <i class="fas fa-arrow-right"></i></button><button class="btn-outline" onclick="location.href='tel:+15551234567'">Call Now <i class="fas fa-phone"></i></button></div></div></div></section>
+
+    <!-- Footer -->
+    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-about"><div class="footer-logo"><i class="fas fa-truck-fast"></i><span>Truck<span style="color:#e94560;">Dispatch</span>Pro</span></div><p>Professional truck dispatching services helping owner-operators maximize revenue with highest paying loads.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div><div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="footer-links"><h4>Get Started</h4><ul><li><a href="register.html">Driver Registration</a></li><li><a href="contact.html">Get a Quote</a></li><li><a href="pricing.html">View Pricing</a></li></ul></div><div class="footer-contact"><h4>Contact Info</h4><ul><li><i class="fas fa-phone"></i> +1 (555) 123-4567</li><li><i class="fas fa-envelope"></i> support@truckdispatchpro.com</li><li><i class="fas fa-clock"></i> 24/7 Available</li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Truck Dispatch Pro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div></div></footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+            document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+        }
+
+        // Intersection Observer for animations
+        const animatedElements = document.querySelectorAll('.contact-info-card, .contact-form-wrapper, .contact-sidebar > div, .map-wrapper, .contact-faq-item, .cta-wrapper');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Form submission
+        const form = document.getElementById('contactForm');
+        const successDiv = document.getElementById('formSuccess');
+        const formWrapper = document.querySelector('.contact-form-wrapper');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const terms = document.getElementById('contactTerms').checked;
+                if(!name || !phone || !email || !message) { alert("Please fill all required fields (*)"); return; }
+                if(!terms) { alert("You must agree to the Terms & Privacy Policy"); return; }
+                if(!email.includes('@') || !email.includes('.')) { alert("Please enter a valid email address"); return; }
+                form.style.display = 'none';
+                successDiv.style.display = 'block';
+                successDiv.style.animation = 'scaleIn 0.5s ease';
+                if(formWrapper) formWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.contact-info-card').forEach(card => { const rect = card.getBoundingClientRect(); if(rect.top < window.innerHeight - 80) card.classList.add('visible'); });
+        });
+    </script>
+</body>
+</html>

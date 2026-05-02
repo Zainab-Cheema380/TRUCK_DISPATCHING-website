@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Affordable truck dispatching pricing plans - Pay only when you earn. No hidden fees.">
+    <meta name="keywords" content="truck dispatching pricing, dispatch service cost, owner operator rates">
+    <title>Pricing | Truck Dispatch Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE - same color scheme as services.html ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* ========== ANIMATIONS (same as services.html) ========== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ========== NAVBAR (exactly like services.html) ========== */
+        .navbar {
+            background: #0f172a;
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: fadeInDown 0.6s ease;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+        }
+        .logo i {
+            color: #e94560;
+            font-size: 1.7rem;
+            transition: transform 0.3s;
+        }
+        .logo:hover i {
+            transform: rotate(-5deg) scale(1.1);
+        }
+        .logo span {
+            color: white;
+        }
+        .logo .highlight {
+            color: #e94560;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            align-items: center;
+        }
+        .nav-link {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #e94560;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #e94560;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, #e94560, #b91c3c);
+            padding: 8px 22px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233,69,96,0.4);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .hamburger:hover {
+            color: #e94560;
+        }
+
+        /* ========== PAGE HEADER (services header style) ========== */
+        .pricing-hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(233,69,96,0.12) 0%, transparent 70%);
+            animation: slowRotate 25s linear infinite;
+        }
+        .pricing-hero h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+        .pricing-hero p {
+            font-size: clamp(0.95rem, 4vw, 1.2rem);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        .pricing-badge {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.6s ease;
+        }
+        .pricing-hero .highlight {
+            color: #e94560;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== PRICING CARDS (service card style) ========== */
+        .pricing-grid-new {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1280px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+        .pricing-card-new {
+            background: white;
+            border-radius: 28px;
+            padding: 35px 28px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid #eef2f6;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .pricing-card-new.visible {
+            animation: scaleIn 0.7s forwards;
+        }
+        .pricing-card-new:hover {
+            transform: translateY(-12px);
+            border-color: #e94560;
+            box-shadow: 0 25px 45px rgba(233,69,96,0.12);
+        }
+        .pricing-card-new.featured {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            transform: scale(1.02);
+        }
+        .pricing-card-new.featured:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+        .popular-tag {
+            position: absolute;
+            top: 18px;
+            right: -30px;
+            background: #e94560;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+            text-transform: uppercase;
+        }
+        .plan-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            transition: all 0.3s;
+            animation: floatAnimation 3s infinite ease-in-out;
+        }
+        .pricing-card-new:hover .plan-icon {
+            transform: scale(1.05) rotate(5deg);
+        }
+        .plan-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        .pricing-card-new.featured .plan-icon {
+            background: rgba(255,255,255,0.15);
+        }
+        .pricing-card-new.featured .plan-icon i {
+            color: white;
+        }
+        .plan-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .plan-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+        .plan-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        .plan-description {
+            color: #64748b;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+        }
+        .pricing-card-new.featured .plan-description {
+            color: rgba(255,255,255,0.7);
+        }
+        .pricing-features-new {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+        .pricing-features-new li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #eef2f6;
+            font-size: 0.85rem;
+        }
+        .pricing-card-new.featured .pricing-features-new li {
+            border-bottom-color: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.85);
+        }
+        .pricing-features-new li i {
+            color: #28a745;
+            width: 20px;
+        }
+        .btn-plan {
+            width: 100%;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: linear-gradient(135deg, #e94560, #b91c3c);
+            color: white;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .btn-plan-outline {
+            background: transparent;
+            border: 2px solid #e94560;
+            color: #e94560;
+        }
+        .pricing-card-new.featured .btn-plan {
+            background: white;
+            color: #e94560;
+        }
+        .btn-plan:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233,69,96,0.4);
+        }
+
+        /* Save Banner */
+        .save-banner {
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            padding: 45px 30px;
+            text-align: center;
+            color: white;
+            border-radius: 28px;
+            margin: 40px auto;
+            max-width: 900px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s;
+        }
+        .save-banner.visible {
+            animation: fadeInUp 0.7s forwards;
+        }
+        .save-banner h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        .save-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        /* Comparison Table */
+        .comparison-new {
+            background: #f8fafc;
+            padding: 60px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header .section-tag {
+            display: inline-block;
+            background: rgba(233,69,96,0.1);
+            color: #e94560;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .section-header .highlight {
+            color: #e94560;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .comparison-item {
+            background: white;
+            padding: 16px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .comparison-item.header {
+            background: #0f172a;
+            color: white;
+            font-weight: 700;
+        }
+        .comparison-item i.fa-check {
+            color: #28a745;
+            font-size: 1.1rem;
+        }
+        .comparison-item i.fa-times {
+            color: #dc3545;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+        }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            border: 1px solid #eef2f6;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+        .faq-item.visible {
+            animation: fadeInUp 0.5s forwards;
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            cursor: pointer;
+            background: white;
+            transition: 0.2s;
+        }
+        .faq-question:hover {
+            background: #fef2f2;
+        }
+        .faq-question i:first-child {
+            color: #e94560;
+            font-size: 1.2rem;
+        }
+        .faq-question h3 {
+            flex: 1;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .toggle-icon {
+            transition: transform 0.3s;
+            color: #64748b;
+        }
+        .faq-item.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 20px;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            padding: 60px 0;
+            background: #f1f5f9;
+        }
+        .guarantee-wrapper {
+            background: white;
+            border-radius: 28px;
+            padding: 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid #eef2f6;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s;
+        }
+        .guarantee-wrapper.visible {
+            animation: fadeInUp 0.7s forwards;
+        }
+        .guarantee-wrapper i {
+            font-size: 3rem;
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        .guarantee-wrapper h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e94560;
+            color: #e94560;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-outline:hover {
+            background: #e94560;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer (same as services.html) */
+        .footer {
+            background: #0b1120;
+            color: #cbd5e1;
+            padding: 55px 24px 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .footer-logo i {
+            color: #e94560;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e94560;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            background: #e94560;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+        }
+        .footer-links li, .footer-contact li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: #e94560;
+            padding-left: 4px;
+        }
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+        }
+        .footer-contact i {
+            width: 20px;
+            color: #e94560;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 35px;
+            margin-top: 40px;
+            border-top: 1px solid #1e293b;
+            font-size: 0.7rem;
+        }
+        .footer-bottom a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: #e94560;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: #0f172a;
+                padding: 25px 20px;
+                border-radius: 24px;
+                margin-top: 15px;
+                gap: 1.2rem;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .comparison-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .pricing-hero {
+                padding: 80px 20px 45px;
+            }
+            .pricing-grid-new {
+                margin: 40px auto;
+                padding: 0 1rem;
+            }
+            .plan-price {
+                font-size: 2.2rem;
+            }
+            .save-banner h3 {
+                font-size: 1.3rem;
+            }
+            .save-amount {
+                font-size: 1.6rem;
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            .footer-grid {
+                text-align: center;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .footer-contact li {
+                justify-content: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .pricing-card-new.featured {
+                transform: scale(1);
+            }
+            .pricing-card-new.featured:hover {
+                transform: translateY(-12px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-truck-fast"></i>
+                <span>Truck<span class="highlight">Dispatch</span>Pro</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="register.html" class="nav-btn">Driver Register</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <div class="pricing-badge">💰 BEST VALUE PLANS</div>
+            <h1>Simple, <span class="highlight">Transparent</span> Pricing</h1>
+            <p>Choose the plan that fits your trucking business. No hidden fees, no long-term contracts.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <div class="pricing-grid-new">
+        <div class="pricing-card-new">
+            <div class="plan-icon"><i class="fas fa-percent"></i></div>
+            <div class="plan-name">Per Load</div>
+            <div class="plan-price">7%<span>/load</span></div>
+            <div class="plan-description">Perfect for part-time drivers or trying us out</div>
+            <ul class="pricing-features-new">
+                <li><i class="fas fa-check"></i> Load Booking & Sourcing</li>
+                <li><i class="fas fa-check"></i> Rate Negotiation</li>
+                <li><i class="fas fa-check"></i> 24/7 Phone Support</li>
+                <li><i class="fas fa-check"></i> GPS Tracking</li>
+                <li><i class="fas fa-check"></i> Paperwork Management</li>
+                <li><i class="fas fa-check"></i> No Monthly Fee</li>
+                <li><i class="fas fa-check"></i> Cancel Anytime</li>
+            </ul>
+            <button class="btn-plan" onclick="location.href='register.html'">Get Started →</button>
+        </div>
+
+        <div class="pricing-card-new featured">
+            <div class="popular-tag">🔥 MOST POPULAR</div>
+            <div class="plan-icon"><i class="fas fa-calendar-week"></i></div>
+            <div class="plan-name">Weekly Plan</div>
+            <div class="plan-price">$199<span>/week + 5%</span></div>
+            <div class="plan-description">Best for full-time drivers who want priority service</div>
+            <ul class="pricing-features-new">
+                <li><i class="fas fa-check"></i> All Per Load Features</li>
+                <li><i class="fas fa-check"></i> Priority Dispatching</li>
+                <li><i class="fas fa-check"></i> Dedicated Dispatcher</li>
+                <li><i class="fas fa-check"></i> Faster Load Matching</li>
+                <li><i class="fas fa-check"></i> Weekly Payouts</li>
+                <li><i class="fas fa-check"></i> Load Guarantee (5+ loads/week)</li>
+                <li><i class="fas fa-check"></i> Save 2% on each load</li>
+            </ul>
+            <button class="btn-plan" onclick="location.href='register.html'">Get Started →</button>
+        </div>
+
+        <div class="pricing-card-new">
+            <div class="plan-icon"><i class="fas fa-truck-ramp-box"></i></div>
+            <div class="plan-name">Fleet</div>
+            <div class="plan-price">Custom<span>/month</span></div>
+            <div class="plan-description">For fleets with 5+ trucks needing dedicated support</div>
+            <ul class="pricing-features-new">
+                <li><i class="fas fa-check"></i> All Weekly Features</li>
+                <li><i class="fas fa-check"></i> Fleet Dashboard</li>
+                <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                <li><i class="fas fa-check"></i> Custom Reporting & Analytics</li>
+                <li><i class="fas fa-check"></i> API Integration Available</li>
+                <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                <li><i class="fas fa-check"></i> Discounted Rates (from 3%)</li>
+            </ul>
+            <button class="btn-plan btn-plan-outline" onclick="location.href='contact.html'">Contact Sales →</button>
+        </div>
+    </div>
+
+    <!-- Save Banner -->
+    <div class="container">
+        <div class="save-banner">
+            <i class="fas fa-gem" style="font-size: 2rem;"></i>
+            <h3>🎉 Limited Time Offer</h3>
+            <div class="save-amount">Save $200 on First Month</div>
+            <p>Sign up for Weekly Plan and get your first week FREE + waived setup fee!</p>
+            <button class="btn-plan" onclick="location.href='register.html'" style="background: white; color: #e94560; margin-top: 15px; width: auto; padding: 12px 30px;">Claim Offer →</button>
+        </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <section class="comparison-new">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Compare Plans</span>
+                <h2>What's <span class="highlight">Included</span></h2>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-item header">Feature</div>
+                <div class="comparison-item header">Per Load</div>
+                <div class="comparison-item header">Weekly</div>
+                <div class="comparison-item header">Fleet</div>
+                
+                <div class="comparison-item">Load Booking</div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                
+                <div class="comparison-item">Rate Negotiation</div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                
+                <div class="comparison-item">24/7 Support</div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                
+                <div class="comparison-item">Dedicated Dispatcher</div>
+                <div class="comparison-item"><i class="fas fa-times"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                
+                <div class="comparison-item">Fleet Dashboard</div>
+                <div class="comparison-item"><i class="fas fa-times"></i></div>
+                <div class="comparison-item"><i class="fas fa-times"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+                
+                <div class="comparison-item">API Access</div>
+                <div class="comparison-item"><i class="fas fa-times"></i></div>
+                <div class="comparison-item"><i class="fas fa-times"></i></div>
+                <div class="comparison-item"><i class="fas fa-check"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i><h3>How do I get paid?</h3><i class="fas fa-chevron-down toggle-icon"></i></div><div class="faq-answer"><p>We work with multiple factoring companies for quick payments. You can choose weekly or bi-weekly payouts.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i><h3>Are there any hidden fees?</h3><i class="fas fa-chevron-down toggle-icon"></i></div><div class="faq-answer"><p>No! Our pricing is 100% transparent. You only pay the percentage on loads we book for you.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i><h3>Can I cancel anytime?</h3><i class="fas fa-chevron-down toggle-icon"></i></div><div class="faq-answer"><p>Yes! No long-term contracts. You can cancel anytime with zero penalties.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-question-circle"></i><h3>What truck types do you cover?</h3><i class="fas fa-chevron-down toggle-icon"></i></div><div class="faq-answer"><p>Dry Van, Reefer, Flatbed, Hot Shot, Power Only, and Box Trucks.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Banner -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-wrapper">
+                <i class="fas fa-shield-alt"></i>
+                <h3>100% Satisfaction Guarantee</h3>
+                <p>Not satisfied in first 30 days? We'll refund your fees. No questions asked.</p>
+                <button class="btn-outline" onclick="location.href='contact.html'">Talk to Our Team</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo"><i class="fas fa-truck-fast"></i><span>Truck<span style="color:#e94560;">Dispatch</span>Pro</span></div>
+                    <p>Professional truck dispatching services helping owner-operators maximize revenue with highest paying loads.</p>
+                    <div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+                </div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Get Started</h4><ul><li><a href="register.html">Driver Registration</a></li><li><a href="contact.html">Get a Quote</a></li><li><a href="pricing.html">View Pricing</a></li></ul></div>
+                <div class="footer-contact"><h4>Contact Info</h4><ul><li><i class="fas fa-phone"></i> +1 (888) 555-0123</li><li><i class="fas fa-envelope"></i> support@truckdispatchpro.com</li><li><i class="fas fa-clock"></i> 24/7 Available</li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Truck Dispatch Pro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+            document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+        }
+
+        // Intersection Observer for scroll animations
+        const animatedElements = document.querySelectorAll('.pricing-card-new, .save-banner, .guarantee-wrapper, .faq-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+        animatedElements.forEach(el => observer.observe(el));
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Trigger visible on load for items already in view
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.pricing-card-new').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 80) card.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>
